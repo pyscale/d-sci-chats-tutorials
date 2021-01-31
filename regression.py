@@ -43,6 +43,7 @@ class TutorialLinearRegressionModel:
     This is an example regression model
 
     :ivar power: This is the power applied to the custom loss function (i.e. the Median Deviation)
+    :ivar coef_: These are the coefficients of the linear model that are only set by the fit function.
     """
     def __init__(self, power: float = 1.0):
 
