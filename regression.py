@@ -38,8 +38,12 @@ def predict_funct(data: np.ndarray, weights: np.ndarray) -> np.ndarray:
     return data.dot(weights)
 
 
-class TutorialModel:
+class TutorialLinearRegressionModel:
+    """
+    This is an example regression model
 
+    :ivar power: This is the power applied to the custom loss function (i.e. the Median Deviation)
+    """
     def __init__(self, power: float = 1.0):
 
         self.p = power
@@ -48,9 +52,10 @@ class TutorialModel:
 
     def fit(self, training_features: np.ndarray, training_labels: np.ndarray):
         """
+        This is for fitting the model to learn the new coefficients
 
-        :param training_features:
-        :param training_labels:
+        :param training_features: The training data
+        :param training_labels: The actual values we want to predict (i.e. ground truth)
         :return:
         """
 
@@ -69,17 +74,19 @@ class TutorialModel:
 
     def predict(self, testing_features):
         """
+        This is predicting on new data based off of the features
 
-        :param testing_features:
+        :param testing_features: The unseen data
         :return:
         """
         return predict_funct(testing_features, self.coef_)
 
     def score(self, testing_features, testing_labels):
         """
+        This is just to score how well we made our predictions.  Lower is better
 
-        :param testing_features:
-        :param testing_labels:
+        :param testing_features: The unseen data
+        :param testing_labels: The actual predictions for the unseen data
         :return:
         """
 
@@ -102,7 +109,7 @@ if __name__ == "__main__":
     y_labels = predict_funct(x_data, random_weights)
 
     # we will just use the default parameters
-    model = TutorialModel()
+    model = TutorialLinearRegressionModel()
 
     print("Splitting the data")
     x_train = x_data[:1000, :]
