@@ -7,9 +7,9 @@ def loss_funct(y_actual: np.ndarray, y_pred: np.ndarray, p: float = 2.0) -> floa
     """
     This will look for the median powered absolute differences
 
-    :param y_actual:
-    :param y_pred:
-    :param p:
+    :param y_actual: These are the actual values based off of seen data
+    :param y_pred: These are the predictions of the actual values
+    :param p: This is a power for the difference
     :return:
     """
 
